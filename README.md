@@ -44,7 +44,7 @@ We tested the fancy stuff (trend filters, dip rules, tilting toward last year's 
 
 | Step | Do this |
 |---|---|
-| 1️⃣ 🔌 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required, for prices; your money can sit at any broker) and **Gmail** (for the email; optional) |
+| 1️⃣ 🔌 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required: it needs an IBKR login for prices, but your investments can be at any broker) and **Gmail** (for the email; optional) |
 | 2️⃣ 🗂️ | **Create a Cowork project.** Name it after your agent. |
 | 3️⃣ 📋 | **Paste this** into a new session: *"Set me up from this guide: https://github.com/OmarTokens/value-cruiser. Ask me the 3 questions, save the engine and my config to the project, then do a dry run with a sample email. No trades."* |
 | 4️⃣ ⏰ | **Say "schedule it."** It runs weekdays at **~4:30 pm ET** (after the close) and Mondays at **~10:15 am ET** (value screen). Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
