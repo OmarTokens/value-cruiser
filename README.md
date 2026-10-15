@@ -1,67 +1,67 @@
-# 🛳️ VALUE CRUISER: a calm two-part investing agent
+# Value Cruiser
 
-### *Claude Cowork 🤝 Interactive Brokers · ⚓ The core does the cruising, 💎 the value sleeve hunts for bargains.*
+A calm, two-part investing agent built with Claude Cowork and Interactive Brokers. A fixed core does the steady work; a small value sleeve looks for bargains.
 
-**Value Cruiser** 🤖 watches your long-term portfolio every evening, tells you when it drifts off course, drafts the 🧮 rebalance, screens for 💎 cheap quality stocks every Monday, and sends you a 📬 calm email.
-**You place every trade yourself.** The agent never trades. 🔒
+**Value Cruiser** watches your long-term portfolio every evening, tells you when it drifts off course, drafts the rebalance, screens for cheap quality stocks every Monday, and sends you a calm email.
+**You place every trade yourself.** The agent never trades.
 
-## 🔴 Live: does it actually work?
+## Live: does it actually work?
 
 A **model portfolio** has followed exactly these rules since **Oct 5, 2026**. The scoreboard updates every Friday after the close, **% only**.
 
 ![Value Cruiser live scoreboard](live/scoreboard.svg)
 
 <!-- CAPTAINS-LOG:START -->
-### 🧭 Captain's Log: week 1 (ending Oct 9, 2026)
+### Weekly log: week 1 (ending Oct 9, 2026)
 **+0.4%** since start vs S&P 500 +1.2% · QQQ +0.2% · Bitcoin −2.5%  
-This week +0.4% vs S&P +1.2% · worst drop 0.0% vs S&P 0.0% (level) · ✅ Within range  
+This week +0.4% vs S&P +1.2% · worst drop 0.0% vs S&P 0.0% (level) · Within range  
 Mix: VTI 36.2 · VXUS 26.7 · GLDM 9.1 · SGOV 9.0 · JAAA 9.0 · Value sleeve 10.1  
 Trades: value sleeve moved out of VTI into ADBE, CRM and ACN (first monthly screen). [Full log →](LIVE.md)
 <!-- CAPTAINS-LOG:END -->
 
-**[📒 Full captain's log →](LIVE.md)** · 🧪 Pass/fail at week 26: a smaller worst drop than the S&P 500, and within 3 points of its return. QQQ and Bitcoin are shown for context.
+**[Full weekly log →](LIVE.md)** · Pass/fail at week 26: a smaller worst drop than the S&P 500, and within 3 points of its return. QQQ and Bitcoin are shown for context.
 
-> 🧭 **Long-term money, not a trading sandbox.** About 4–10 trades a year. Want action? Meet the fast sibling, [🏎️ Twin Turbo](https://github.com/OmarTokens/twin-turbo-trader).
+> **Long-term money, not a trading sandbox.** About 4–10 trades a year. Want action? Meet the fast sibling, [Twin Turbo](https://github.com/OmarTokens/twin-turbo-trader).
 >
-> ⚠️ **Not financial advice.** You can lose money (the backtest below fell −13% at its worst, and real markets can do much worse). Read the [fine print](#️-the-fine-print).
+> **Not financial advice.** You can lose money (the backtest below fell −13% at its worst, and real markets can do much worse). Read the [fine print](#the-fine-print).
 
 ---
 
-## 🧠 Why two parts?
+## Why two parts?
 
 We tested the fancy stuff (trend filters, dip rules, tilting toward last year's winner) and **none of it beat a plain, rebalanced mix** on a fair test. So the core stays boring, and the fun goes in a small, capped sleeve:
 
 | Part | Share | What it does | Pace |
 |---|---|---|---|
-| ⚓ **CORE** | **90%** | Five funds at fixed weights: US stocks, international stocks, gold, T-bills, AAA loans. Rebalanced when something drifts. | ~1–2 trades/quarter |
-| 💎 **VALUE SLEEVE** | **10%** | Up to 5 quality companies trading **cheap vs their own history**, reviewed monthly | ~1 trade/month |
+| **CORE** | **90%** | Five funds at fixed weights: US stocks, international stocks, gold, T-bills, AAA loans. Rebalanced when something drifts. | ~1–2 trades/quarter |
+| **VALUE SLEEVE** | **10%** | Up to 5 quality companies trading **cheap vs their own history**, reviewed monthly | ~1 trade/month |
 
-**Together: a calmer ride than the S&P 500**, all from rules, no vibes. 🎯
+**Together: a calmer ride than the S&P 500**, all from rules, no vibes.
 
 ---
 
-## ⚡ Launch sequence (about 15 min)
+## Launch sequence (about 15 min)
 
 | Step | Do this |
 |---|---|
-| 1️⃣ 🔌 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required: it needs an IBKR login for prices, but your investments can be at any broker) and **Gmail** (for the email; optional) |
-| 2️⃣ 🗂️ | **Create a Cowork project.** Name it after your agent. |
-| 3️⃣ 📋 | **Paste this** into a new session: *"Set me up from this guide: https://github.com/OmarTokens/value-cruiser. Ask me the 3 questions, save the engine and my config to the project, then do a dry run with a sample email. No trades."* |
-| 4️⃣ ⏰ | **Say "schedule it."** It runs weekdays at **~4:30 pm ET** (after the close) and Mondays at **~10:15 am ET** (value screen). Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
-| 5️⃣ ☕ | **When an email says "course correction":** read the plan, place the orders yourself at your broker, then tell the agent what filled. |
+| 1 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required: it needs an IBKR login for prices, but your investments can be at any broker) and **Gmail** (for the email; optional) |
+| 2 | **Create a Cowork project.** Name it after your agent. |
+| 3 | **Paste this** into a new session: *"Set me up from this guide: https://github.com/OmarTokens/value-cruiser. Ask me the 3 questions, save the engine and my config to the project, then do a dry run with a sample email. No trades."* |
+| 4 | **Say "schedule it."** It runs weekdays at **~4:30 pm ET** (after the close) and Mondays at **~10:15 am ET** (value screen). Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
+| 5 | **When an email says "course correction":** read the plan, place the orders yourself at your broker, then tell the agent what filled. |
 
-> 💡 **Use your tax-advantaged accounts.** The agent does its selling inside IRAs and Roths first, so most rebalancing never creates a tax bill.
+> **Use your tax-advantaged accounts.** The agent does its selling inside IRAs and Roths first, so most rebalancing never creates a tax bill.
 
 ---
 
-## 🎯 Just 3 questions
+## Just 3 questions
 
-### 1 · 💰 How much, and where?
+### 1 · How much, and where?
 Each account's value and whether it's **taxable** (a normal brokerage account) or **tax-advantaged** (IRA, Roth, 401k). Type it in or paste a screenshot of your positions (**crop out account numbers**).
 
-### 2 · 🎚️ Which mix?
+### 2 · Which mix?
 
-| | 🛳️ **Value Cruiser** *(default)* | ⚓ **Core Only** |
+| | **Value Cruiser** *(default)* | **Core Only** |
 |---|---|---|
 | Mix | 90% core / 10% value sleeve | 100% core, no stock picking |
 | Trades/year | ~10 | ~4 |
@@ -69,103 +69,103 @@ Each account's value and whether it's **taxable** (a normal brokerage account) o
 | Worst drop* | −12.8% | −12.4% |
 | For you if… | You like hunting for bargains with a small slice | You want zero opinions, just the bands |
 
-<sub>*The value sleeve can't be backtested, so it was modelled as extra US stocks. See [the evidence](#-the-evidence-and-its-limits).</sub>
+<sub>*The value sleeve can't be backtested, so it was modelled as extra US stocks. See [the evidence](#the-evidence-and-its-limits).</sub>
 
-### 3 · 🎤 Email vibe?
-🧭 Ship's captain · 📈 Wall St veteran · 🧘 Zen monk · 🏄 Chill surfer · 🧊 Plain · ✍️ *invent your own*
+### 3 · Email vibe?
+ Ship's captain · Wall St veteran · Zen monk · Chill surfer · Plain · *invent your own*
 
 ---
 
-## ⚓ Core: the rules
+## Core: the rules
 
 | Rule | Setting |
 |---|---|
-| 🇺🇸 **US stocks** | **36%** `VTI` (the whole US market) |
-| 🌍 **International stocks** | **27%** `VXUS` (everything outside the US) |
-| 🥇 **Gold** | **9%** `GLDM` |
-| 💵 **T-bills** | **9%** `SGOV` (0–3 month US Treasury bills; almost never moves) |
-| 🏦 **AAA loans** | **9%** `JAAA` (only the safest, AAA-rated slices of bundled business loans; floating rate) |
-| 📏 **Drift bands** | Big parts **±5 points** (US 31–41%). Small parts **±25% of target** (gold 6.75–11.25%). |
-| 🔔 **Course correction** | A part outside its band → the agent drafts a rebalance |
-| 🗓️ **Quarterly tune-up** | First trading day of Jan / Apr / Jul / Oct: small fixes only if a part is more than 1% of the portfolio off |
-| 💸 **New money** | Goes to the part furthest below target. No selling needed. |
-| 🧾 **Taxes** | Sell inside IRAs/Roths first. Any sale in a taxable account gets a flag: check gains, holding period and wash sales, or use new money instead. |
+| **US stocks** | **36%** `VTI` (the whole US market) |
+| **International stocks** | **27%** `VXUS` (everything outside the US) |
+| **Gold** | **9%** `GLDM` |
+| **T-bills** | **9%** `SGOV` (0–3 month US Treasury bills; almost never moves) |
+| **AAA loans** | **9%** `JAAA` (only the safest, AAA-rated slices of bundled business loans; floating rate) |
+| **Drift bands** | Big parts **±5 points** (US 31–41%). Small parts **±25% of target** (gold 6.75–11.25%). |
+| **Course correction** | A part outside its band → the agent drafts a rebalance |
+| **Quarterly tune-up** | First trading day of Jan / Apr / Jul / Oct: small fixes only if a part is more than 1% of the portfolio off |
+| **New money** | Goes to the part furthest below target. No selling needed. |
+| **Taxes** | Sell inside IRAs/Roths first. Any sale in a taxable account gets a flag: check gains, holding period and wash sales, or use new money instead. |
 
-## 💎 Value sleeve: the rules
+## Value sleeve: the rules
 
 | Rule | Setting |
 |---|---|
-| 🎯 **Hunting ground** | The **50-name watchlist** below |
-| 📉 **Cheap** | Forward P/E (price ÷ next year's expected earnings) at least **25% below the company's own 5-year median** |
-| ✅ **Quality** | Profitable, and earnings estimates haven't fallen more than 10% in 3 months |
-| 🧠 **The why** | The reason it's cheap has to look **temporary**. If it looks permanent, it's a value trap. Skip it. |
-| 📦 **Size** | Up to **5 names**, starters of ~2% each, max **2.5% per name**, **10%** total |
-| 📅 **Earnings** | No new buys within 2 trading days of a report |
-| 🚪 **Exit** | Monthly review: the agent flags a name when it's no longer cheap (back above its median) or the "temporary" reason turned permanent. You decide. |
+| **Hunting ground** | The **50-name watchlist** below |
+| **Cheap** | Forward P/E (price ÷ next year's expected earnings) at least **25% below the company's own 5-year median** |
+| **Quality** | Profitable, and earnings estimates haven't fallen more than 10% in 3 months |
+| **The why** | The reason it's cheap has to look **temporary**. If it looks permanent, it's a value trap. Skip it. |
+| **Size** | Up to **5 names**, starters of ~2% each, max **2.5% per name**, **10%** total |
+| **Earnings** | No new buys within 2 trading days of a report |
+| **Exit** | Monthly review: the agent flags a name when it's no longer cheap (back above its median) or the "temporary" reason turned permanent. You decide. |
 
-## 🧯 Brakes
+## Brakes
 
 - **Never** market timing, leverage, options, shorting, crypto, or changing the targets on its own
 - **Stale or missing prices** → no plan that day, and it tells you why
 
 ---
 
-## 🗺️ The value watchlist: 50 names
+## The value watchlist: 50 names
 
-Large, established US companies from across the economy. This is a **fixed list**, so the screen can't chase whatever is hot this week. 🙃
+Large, established US companies from across the economy. This is a **fixed list**, so the screen can't chase whatever is hot this week.
 
 `AAPL` · `ABT` · `ACN` · `ADBE` · `AMGN` · `AMZN` · `AVGO` · `CAT` · `CI` · `CMCSA` · `COST` · `CRM` · `CSCO` · `DE` · `DHR` · `DIS` · `ELV` · `FDX` · `GOOGL` · `HD` · `HON` · `IBM` · `INTU` · `JNJ` · `KO` · `LLY` · `LOW` · `MA` · `MCD` · `MDT` · `META` · `MRK` · `MSFT` · `NFLX` · `NKE` · `NVDA` · `ORCL` · `PEP` · `PFE` · `PG` · `QCOM` · `SBUX` · `TMO` · `TMUS` · `TXN` · `UNH` · `UNP` · `UPS` · `V` · `VZ`
 
-✂️ **Make your own call:** remove anything you don't want to own. Keep it **40+ names**.
+ **Make your own call:** remove anything you don't want to own. Keep it **40+ names**.
 
 ---
 
-## 📬 The Captain's Log
+## The daily email
 
-**Sample 🧭 (Ship's captain):**
-> **Subject: 🛳️ Value Cruiser — Tue Oct 6 — 1 course correction**
+**Sample ("Ship's captain" voice):**
+> **Subject: Value Cruiser — Tue Oct 6 — 1 course correction**
 >
 > Steady seas, Captain. One instrument is outside its band.
 >
-> 🥇 **GOLD** is at 12.0% vs a 9.0% target (band ±2.25). Strong run.
-> 🔴 **SELL — GLDM** · IRA · `≈12 sh` · no tax inside the IRA
-> 🟢 **BUY — VXUS** · IRA · `17 sh` · international is furthest below target
+> **GOLD** is at 12.0% vs a 9.0% target (band ±2.25). Strong run.
+> **SELL — GLDM** · IRA · `≈12 sh` · no tax inside the IRA
+> **BUY — VXUS** · IRA · `17 sh` · international is furthest below target
 >
-> ⚓ **Mix:** US 36.9 · Intl 25.0 · Gold 12.0 · T-bills 9.8 · AAA 9.9 · Value 4.7 (room for 2 starters)
-> 💎 **On the radar:** ABC (P/E 31% below its median), DEF (27% below; reports in 9 days)
+> **Mix:** US 36.9 · Intl 25.0 · Gold 12.0 · T-bills 9.8 · AAA 9.9 · Value 4.7 (room for 2 starters)
+> **On the radar:** ABC (P/E 31% below its median), DEF (27% below; reports in 9 days)
 >
-> Orders are yours to place. Tell me what filled. — **Value Cruiser** 🛳️
+> Orders are yours to place. Tell me what filled. — **Value Cruiser**
 > <sub>Automated output from your own tool, not financial advice. You make every call.</sub>
 
-**Remix anytime:** `email vibe pirate` 🏴‍☠️ · `email shorter` · `email only when action`
+**Remix anytime:** `email vibe pirate` · `email shorter` · `email only when action`
 
 ---
 
-## 🎛️ Mission control
+## Mission control
 
 | If… | Say |
 |---|---|
-| 👀 You want a quick picture | `status` |
-| 📏 Where's the drift? | `drift` |
-| 🧮 Draft a rebalance now | `rebalance plan` |
-| 💸 New money arrived | `new cash 5000` |
-| 💎 Value ideas now | `screen` / `explain <TICKER>` |
-| 🧾 You traded | `filled: bought 10 VTI at 378 in IRA` |
-| 🎚️ Change the mix | `mix cruiser` · `mix core only` |
-| 🏖️ Take a break | `pause` / `resume` |
+| You want a quick picture | `status` |
+| Where's the drift? | `drift` |
+| Draft a rebalance now | `rebalance plan` |
+| New money arrived | `new cash 5000` |
+| Value ideas now | `screen` / `explain <TICKER>` |
+| You traded | `filled: bought 10 VTI at 378 in IRA` |
+| Change the mix | `mix cruiser` · `mix core only` |
+| Take a break | `pause` / `resume` |
 
-🏆 **Golden rule:** **don't steer by the news.** The bands do the steering. The most expensive trade in long-term investing is usually the one you make because you were nervous.
+ **Golden rule:** **don't steer by the news.** The bands do the steering. The most expensive trade in long-term investing is usually the one you make because you were nervous.
 
 ---
 
-## 📊 The evidence (and its limits)
+## The evidence (and its limits)
 
 **Setup:** daily bars from IBKR, Aug 1 2022 → Oct 2 2026, dividends reinvested, 0.1% cost on every traded dollar, rebalanced to target each quarter.
 
 | Strategy | Total | Per year | Worst drop | Worst 3 months |
 |---|---|---|---|---|
-| 🛳️ **Value Cruiser** (sleeve modelled as extra VTI) | **+82%** | 15.4% | **−12.8%** | −8.5% |
-| ⚓ Core Only | +80% | 15.2% | −12.4% | −7.9% |
+| **Value Cruiser** (sleeve modelled as extra VTI) | **+82%** | 15.4% | **−12.8%** | −8.5% |
+| Core Only | +80% | 15.2% | −12.4% | −7.9% |
 | 100% stocks (VTI 60 / VXUS 40) | +90% | 16.7% | −16.3% | −12.8% |
 | S&P 500 (SPY) | +98% | 17.8% | −18.8% | −16.4% |
 | Nasdaq-100 (QQQ) | +144% | 23.8% | −22.8% | −20.6% |
@@ -174,10 +174,10 @@ Large, established US companies from across the economy. This is a **fixed list*
 
 | | 2022 (Aug–Dec) | 2023 | 2024 | 2025 | 2026 YTD |
 |---|---|---|---|---|---|
-| 🛳️ Value Cruiser | −2.6% | +18.7% | +15.7% | +22.7% | +10.6% |
+| Value Cruiser | −2.6% | +18.7% | +15.7% | +22.7% | +10.6% |
 | S&P 500 | −6.1% | +26.2% | +24.9% | +17.7% | +13.7% |
 
-**Read this before you decide:** 🧐
+**Read this before you decide:**
 - **It trailed the S&P 500 by about 16 points.** In return, its worst drop was about a third smaller and its worst 3 months about half as bad. That trade is the whole point. If you'd rather have the extra return, a plain index fund is simpler.
 - It **beat the S&P 500 in only 2 of 5 periods** (the 2022 drop and 2025).
 - **Gold did a lot of the work.** GLDM rose +133% in this window. Don't count on that again.
@@ -187,7 +187,7 @@ Large, established US companies from across the economy. This is a **fixed list*
 
 ---
 
-## 🤖 The agent's rulebook
+## The agent's rulebook
 
 <details>
 <summary><b>Agent: read this section and follow it exactly.</b></summary>
@@ -359,7 +359,7 @@ if __name__ == '__main__':
 
 ---
 
-## ⚖️ The fine print
+## The fine print
 
 *Short version: this is a free, do-it-yourself template. You run it, you decide, you own the results.*
 
@@ -378,4 +378,4 @@ By using this guide, you accept these terms.
 
 ---
 
-*🛳️ Make it yours: rename the ship, trim the watchlist, pick an email vibe. Then let the bands do the steering.* ⚓
+*Make it yours: rename the ship, trim the watchlist, pick an email vibe. Then let the bands do the steering.*
