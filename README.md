@@ -12,10 +12,10 @@ A **model portfolio** has followed exactly these rules since **Oct 5, 2026**. Th
 ![Value Cruiser live scoreboard](live/scoreboard.svg)
 
 <!-- CAPTAINS-LOG:START -->
-### Weekly log: week 3 (ending Oct 23, 2026)
-**-0.3%** since start vs S&P 500 -1.3% · QQQ -6.0% · Bitcoin -3.7%  
-This week -0.0% vs S&P -0.4% · worst drop -0.7% vs S&P -2.4% (calmer) · Within range  
-Mix: VTI 35.6 · VXUS 26.2 · GLDM 8.7 · SGOV 9.0 · JAAA 9.1 · Value sleeve 11.4  
+### Weekly log: week 4 (ending Oct 30, 2026)
+**-1.1%** since start vs S&P 500 -1.8% · QQQ -7.9% · Bitcoin -9.2%  
+This week -0.8% vs S&P -0.6% · worst drop -1.5% vs S&P -2.9% (calmer) · Within range  
+Mix: VTI 35.8 · VXUS 26.3 · GLDM 8.5 · SGOV 9.1 · JAAA 9.1 · Value sleeve 11.2  
 Trades: none. The bands held. [Full log →](LIVE.md)
 <!-- CAPTAINS-LOG:END -->
 
