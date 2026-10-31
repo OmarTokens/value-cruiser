@@ -1,15 +1,14 @@
 # Value Cruiser
 
-A calm, two-part investing agent built with Claude Cowork and Interactive Brokers. A fixed core does the steady work; a small value sleeve looks for bargains.
+A calm Claude agent for long-term money: a fixed five-fund core does the steady work, a small value sleeve hunts for bargains. A **model portfolio** follows the rules in public, **% only**. About 4–10 trades a year, and **you place every one yourself**.
 
-**Value Cruiser** watches your long-term portfolio every evening, tells you when it drifts off course, drafts the rebalance, screens for cheap quality stocks every Monday, and sends you a calm email.
-**You place every trade yourself.** The agent never trades.
-
-## Live: does it actually work?
-
-A **model portfolio** has followed exactly these rules since **Oct 5, 2026**. The scoreboard updates every Friday after the close, **% only**.
+**Get the Friday update:** Watch → Custom → **Releases** · [Full weekly log](LIVE.md) · [Fast sibling: Twin Turbo →](https://github.com/OmarTokens/twin-turbo-trader)
 
 ![Value Cruiser live scoreboard](live/scoreboard.svg)
+
+![Season 1, week by week vs the S&P 500](live/season.svg)
+
+## This week
 
 <!-- CAPTAINS-LOG:START -->
 ### Weekly log: week 4 (ending Oct 30, 2026)
@@ -19,15 +18,31 @@ Mix: VTI 35.8 · VXUS 26.3 · GLDM 8.5 · SGOV 9.1 · JAAA 9.1 · Value sleeve 1
 Trades: none. The bands held. [Full log →](LIVE.md)
 <!-- CAPTAINS-LOG:END -->
 
-**[Full weekly log →](LIVE.md)** · Pass/fail at week 26: a smaller worst drop than the S&P 500, and within 3 points of its return. QQQ and Bitcoin are shown for context.
+![The weekly call](live/call.svg)
 
-> **Long-term money, not a trading sandbox.** About 4–10 trades a year. Want action? Meet the fast sibling, [Twin Turbo](https://github.com/OmarTokens/twin-turbo-trader).
->
-> **Not financial advice.** You can lose money (the backtest below fell −13% at its worst, and real markets can do much worse). Read the [fine print](#the-fine-print).
+![Calm meter](live/calm.svg)
 
----
+> **Long-term money, not a trading sandbox.** **Not financial advice:** you can lose money (the backtest fell −13% at its worst, and real markets can do much worse). Read the [fine print](#the-fine-print).
 
-## Why two parts?
+## The value sleeve
+
+![Value sleeve report card](live/picks.svg)
+
+Up to 5 quality companies trading **at least 25% below their own 5-year forward P/E**, for a reason that looks temporary. Screened on the first Friday of each month; every pick and every skip is explained in the [log](LIVE.md#value-sleeve-picks).
+
+## Watching the market
+
+![Deep-drop watch](live/deepdrop.svg)
+
+The live model keeps its original rules for the 26-week test. The market check, deep-drop levels and bear watch are tools for your own accounts, shown here so you can see where they stand each week.
+
+## The race
+
+![Twin Turbo vs Value Cruiser](live/race.svg)
+
+Same start, opposite philosophies. [Twin Turbo](https://github.com/OmarTokens/twin-turbo-trader) is the fast sibling: momentum trading in a small, separate account.
+
+## How it works
 
 We tested the fancy stuff (trend filters, dip rules, tilting toward last year's winner) and **none of it beat a plain, rebalanced mix** on a fair test. So the core stays boring, and the fun goes in a small, capped sleeve:
 
@@ -38,45 +53,10 @@ We tested the fancy stuff (trend filters, dip rules, tilting toward last year's 
 
 **Together: a calmer ride than the S&P 500**, all from rules, no vibes.
 
----
+<details>
+<summary><b>The rules: core, value sleeve, brakes</b></summary>
 
-## Launch sequence (about 15 min)
-
-| Step | Do this |
-|---|---|
-| 1 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required: it needs an IBKR login for prices, but your investments can be at any broker) and **Gmail** (for the email; optional) |
-| 2 | **Create a Cowork project.** Name it after your agent. |
-| 3 | **Paste this** into a new session: *"Set me up from this guide: https://github.com/OmarTokens/value-cruiser. Ask me the 3 questions, save the engine and my config to the project, then do a dry run with a sample email. No trades."* |
-| 4 | **Say "schedule it."** It runs weekdays at **~4:30 pm ET** (after the close) and Mondays at **~10:15 am ET** (value screen). Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
-| 5 | **When an email says "course correction":** read the plan, place the orders yourself at your broker, then tell the agent what filled. |
-
-> **Use your tax-advantaged accounts.** The agent does its selling inside IRAs and Roths first, so most rebalancing never creates a tax bill.
-
----
-
-## Just 3 questions
-
-### 1 · How much, and where?
-Each account's value and whether it's **taxable** (a normal brokerage account) or **tax-advantaged** (IRA, Roth, 401k). Type it in or paste a screenshot of your positions (**crop out account numbers**).
-
-### 2 · Which mix?
-
-| | **Value Cruiser** *(default)* | **Core Only** |
-|---|---|---|
-| Mix | 90% core / 10% value sleeve | 100% core, no stock picking |
-| Trades/year | ~10 | ~4 |
-| Backtest return (Aug 2022 → Oct 2026)* | +82% | +80% |
-| Worst drop* | −12.8% | −12.4% |
-| For you if… | You like hunting for bargains with a small slice | You want zero opinions, just the bands |
-
-<sub>*The value sleeve can't be backtested, so it was modelled as extra US stocks. See [the evidence](#the-evidence-and-its-limits).</sub>
-
-### 3 · Email vibe?
- Ship's captain · Wall St veteran · Zen monk · Chill surfer · Plain · *invent your own*
-
----
-
-## Core: the rules
+#### Core
 
 | Rule | Setting |
 |---|---|
@@ -91,7 +71,7 @@ Each account's value and whether it's **taxable** (a normal brokerage account) o
 | **New money** | Goes to the part furthest below target. No selling needed. |
 | **Taxes** | Sell inside IRAs/Roths first. Any sale in a taxable account gets a flag: check gains, holding period and wash sales, or use new money instead. |
 
-## Value sleeve: the rules
+#### Value sleeve
 
 | Rule | Setting |
 |---|---|
@@ -103,14 +83,12 @@ Each account's value and whether it's **taxable** (a normal brokerage account) o
 | **Earnings** | No new buys within 2 trading days of a report |
 | **Exit** | Monthly review: the agent flags a name when it's no longer cheap (back above its median) or the "temporary" reason turned permanent. You decide. |
 
-## Brakes
+#### Brakes
 
 - **Never** market timing, leverage, options, shorting, crypto, or changing the targets on its own
 - **Stale or missing prices** → no plan that day, and it tells you why
 
----
-
-## The value watchlist: 50 names
+#### The value watchlist: 50 names
 
 Large, established US companies from across the economy. This is a **fixed list**, so the screen can't chase whatever is hot this week.
 
@@ -118,9 +96,122 @@ Large, established US companies from across the economy. This is a **fixed list*
 
  **Make your own call:** remove anything you don't want to own. Keep it **40+ names**.
 
----
+</details>
 
-## The daily email
+<details>
+<summary><b>New Oct 30: market check, deep-drop plan, bear watch, tax and self-improving rules</b></summary>
+
+### Market check, deep-drop plan and self-improving rules
+
+*Added Oct 30, 2026.* These are habits that grew out of running the same agent on a real household portfolio through a choppy October. They don't change the core: the bands still do the steering, and the agent still never trades. They make the **value sleeve, new money and the hard days** smarter.
+
+> **The live model above keeps its original rules** until week 26, so the scoreboard stays a fair test. Everything in this section is for your own accounts.
+
+#### 1 · Market check before any value-sleeve buy
+
+Every idea gets a one-word label for the market, worked out from data, not headlines:
+
+| Label | When | What it means for value-sleeve buys |
+|---|---|---|
+| **CALM** | None of the warning signs below | Normal starter size |
+| **STRESSED** | Any of: S&P 500 below its 50-day average · VIX at 20 or more · a semiconductor fund 10%+ below its 20-day high or down 5 days running · 10-year yield up 0.25 points or more in 20 sessions | Half-size starters, quality names only, nothing new in chips or AI hardware |
+| **RISK-OFF** | Bear watch is on (point 3) | No new value buys outside the drop levels |
+
+The agent writes the label and the reasons on every idea, so you can see why something was held back. Prices in an idea must be live (with the time shown), and every valuation names a dated source no older than 7 days; anything older is marked **STALE**.
+
+#### 2 · A plan for new money on deep drops (optional)
+
+If you keep a cash or T-bill reserve beyond the 9% core T-bill slice, decide **now, while it's calm,** how it gets used if the market falls. Measured from the S&P 500's high:
+
+| Level | S&P 500 from its high | Share of your reserve (a guide, not a trigger) |
+|---|---|---|
+| 1 | −5% | about 15% |
+| 2 | −10% | about 21% |
+| 3 | −15% | about 23% |
+| 4 | −20% | about 23% |
+| 5 | −25% to −30% | about 18% |
+
+One step per level per drop; if the market bounces, nothing is undone. Five levels instead of three is deliberate: an early-heavy plan spends most of the reserve by −10% and has little left near a real bottom.
+
+#### 3 · Bear watch: ride it, with a plan
+
+The question everyone asks in a sell-off: *do I get out and wait in cash, or ride it?* Getting out needs two good calls (when to leave and when to come back), and the best days often come right after the worst ones. So the core rides. What changes is the **warning and the menu**:
+
+- **Bear watch ON** when the S&P 500 has closed below its 200-day average for **10 straight sessions** and is **at least 10% below its high**.
+- While it's on, the market label is RISK-OFF, new money follows the drop levels, and the agent shows a **de-risk menu once**. You decide; nothing happens automatically:
+  1. trim the most crowded or speculative positions **inside tax-advantaged accounts first** (no tax on those sales),
+  2. harvest losses in taxable accounts (a tax refund that also raises cash; the wash-sale guard applies),
+  3. pause new buys until the S&P 500 is back above its 200-day average.
+- **All clear** after 10 straight closes back above the 200-day average.
+
+#### 4 · Tax-loss harvest with a household-wide wash-sale guard
+
+- In taxable accounts, the agent flags a holding that is under water by more than your threshold (set it in dollars when you set up; small losses aren't worth the trade).
+- **Wash sales count across every account you and your household own, IRAs included.** If the same fund is bought anywhere within 30 days before or after the sale, the loss is disallowed, and if the buy was in an IRA it's lost for good. The agent checks every account before calling a loss "clean".
+- After a harvest, the sold fund is paused in **every** account for 31 days. Two funds from different issuers that hold the same thing (two gold funds, two bitcoin funds) may count as identical: treated as a risk, not a clean swap.
+- The usual play: take the clean loss and rotate the money into something you want to hold for years.
+
+#### 5 · Review dates, not buy dates
+
+Calendar dates (for example after an election or a Fed meeting) are **review dates**: the agent re-checks the plan and brings ideas that pass the value check and the market check. Nothing is bought just because the date arrived. A name that reports earnings within 10 trading days normally waits for the report.
+
+#### 6 · Rules that improve themselves
+
+Every rule the agent follows lives in one registry with an ID, the reason it exists and how it will be judged.
+
+- **LOCKED** rules are your values and safety limits (research only, your exclusions, who gets emails). The agent never proposes removing them.
+- **DEFAULT** rules (sizes, timing, checks) can be bent once if the agent names the rule and says why, and can be changed through the weekly review.
+- **EXPERIMENT** rules run for 4 weeks with a pass/fail metric, then are kept or dropped.
+
+The loop:
+1. Every idea gets an ID (`I-1029-1`). Your answer (`OK` / `NO` plus a reason) is logged.
+2. Every time a rule blocks something, the agent records the price at that moment, then checks it 1, 4 and 12 weeks later. That shows what each rule actually cost or saved.
+3. On Fridays the agent proposes **at most 3 rule changes**, each with numbers. If a rule was overridden twice, or blocked an idea that then rose more than 5%, at least one proposal must **relax** a rule. A reason you give twice must produce a new rule.
+4. You reply `APPROVE P-3`, `TEST P-3` (4-week trial) or `NO P-3`. Approved changes are applied everywhere the rule lives, with a changelog line.
+
+#### 7 · One dashboard instead of long emails (optional)
+
+If you'd rather open one page than read emails, ask the agent to build a private Claude artifact dashboard. The layout that worked best: **your day first** (portfolio value, today's move against the S&P 500, and every holding's move in dollars and percent, largest first), then a short brief (a headline, three drivers, one line for today, a three-sentence take, details folded away), then ideas you can answer with a tap, plans, tax and the rule proposals. The emails shrink to a two-line nudge with the link.
+
+</details>
+
+## Build your own
+
+<details>
+<summary><b>Launch in 15 minutes (3 questions)</b></summary>
+
+| Step | Do this |
+|---|---|
+| 1 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required: it needs an IBKR login for prices, but your investments can be at any broker) and **Gmail** (for the email; optional) |
+| 2 | **Create a Cowork project.** Name it after your agent. |
+| 3 | **Paste this** into a new session: *"Set me up from this guide: https://github.com/OmarTokens/value-cruiser. Ask me the 3 questions, save the engine and my config to the project, then do a dry run with a sample email. No trades."* |
+| 4 | **Say "schedule it."** It runs weekdays at **~4:30 pm ET** (after the close) and Mondays at **~10:15 am ET** (value screen). Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
+| 5 | **When an email says "course correction":** read the plan, place the orders yourself at your broker, then tell the agent what filled. |
+
+> **Use your tax-advantaged accounts.** The agent does its selling inside IRAs and Roths first, so most rebalancing never creates a tax bill.
+
+#### 1 · How much, and where?
+Each account's value and whether it's **taxable** (a normal brokerage account) or **tax-advantaged** (IRA, Roth, 401k). Type it in or paste a screenshot of your positions (**crop out account numbers**).
+
+#### 2 · Which mix?
+
+| | **Value Cruiser** *(default)* | **Core Only** |
+|---|---|---|
+| Mix | 90% core / 10% value sleeve | 100% core, no stock picking |
+| Trades/year | ~10 | ~4 |
+| Backtest return (Aug 2022 → Oct 2026)* | +82% | +80% |
+| Worst drop* | −12.8% | −12.4% |
+| For you if… | You like hunting for bargains with a small slice | You want zero opinions, just the bands |
+
+<sub>*The value sleeve can't be backtested, so it was modelled as extra US stocks. See [the evidence](#the-evidence-and-its-limits).</sub>
+
+#### 3 · Email vibe?
+ Ship's captain · Wall St veteran · Zen monk · Chill surfer · Plain · *invent your own*
+
+</details>
+
+<details>
+<summary><b>The daily email and mission control</b></summary>
 
 **Sample ("Ship's captain" voice):**
 > **Subject: Value Cruiser — Tue Oct 6 — 1 course correction**
@@ -139,10 +230,6 @@ Large, established US companies from across the economy. This is a **fixed list*
 
 **Remix anytime:** `email vibe pirate` · `email shorter` · `email only when action`
 
----
-
-## Mission control
-
 | If… | Say |
 |---|---|
 | You want a quick picture | `status` |
@@ -156,9 +243,12 @@ Large, established US companies from across the economy. This is a **fixed list*
 
  **Golden rule:** **don't steer by the news.** The bands do the steering. The most expensive trade in long-term investing is usually the one you make because you were nervous.
 
----
+</details>
 
-## The evidence (and its limits)
+<details>
+<summary><b>The evidence (and its limits)</b></summary>
+
+<a id="the-evidence-and-its-limits"></a>
 
 **Setup:** daily bars from IBKR, Aug 1 2022 → Oct 2 2026, dividends reinvested, 0.1% cost on every traded dollar, rebalanced to target each quarter.
 
@@ -185,12 +275,12 @@ Large, established US companies from across the economy. This is a **fixed list*
 - **4 years is one market regime,** and a great one for US stocks. In a decade where US stocks lag, the international and gold parts matter more.
 - **A backtest is not a forecast.**
 
----
-
-## The agent's rulebook
+</details>
 
 <details>
-<summary><b>Agent: read this section and follow it exactly.</b></summary>
+<summary><b>The agent's rulebook (for Claude)</b></summary>
+
+**Agent: read this section and follow it exactly.**
 
 **Setup.** If the project has no `config` doc:
 1. Show the Fine Print and ask the user to confirm they've read it.
@@ -218,6 +308,13 @@ When asked to schedule: weekdays ~4:30 pm ET (drift check + Friday logbook on Fr
 6. Monthly, re-check each held value name: has the reason it was cheap become permanent? Flag it; never insist.
 
 **Friday logbook.** Week and since-start % for the user's portfolio (deposit-adjusted) vs `SPY`, current mix vs targets, value-sleeve status, anything due next week.
+
+**Market check, drop levels and bear watch** (see "Market check, deep-drop plan and self-improving rules"; skip any part the user turned off).
+1. Before any value-sleeve idea, label the market CALM / STRESSED / RISK-OFF from IBKR data: S&P 500 (`SPY`) daily closes for one year (50- and 200-day averages, distance from the high), `VIX`, a semiconductor fund's 20-day high and losing streak, and the 10-year yield now vs 20 sessions ago. Size the idea by the label and show the reasons in one line.
+2. Count consecutive closes below and above the 200-day average. Turn bear watch on and off exactly as the guide says. The day it turns on, show the de-risk menu once; afterwards, one line a day. Never sell or suggest selling outside that menu, tax-loss flags and post-earnings reviews.
+3. If the user set a reserve, list the drop levels and the share of the reserve for each. When a level is newly crossed at a close, open the next email with it. One step per level per drop.
+4. Wash-sale guard: before calling any loss clean, check buys of the same ticker in every account the user listed (IRAs and a partner's accounts too) in the last 30 days and any planned buy in the next 30 days. After a harvest, pause that ticker in every account for 31 days.
+5. Self-improving rules: keep a `rules` doc (ID, class LOCKED / DEFAULT / EXPERIMENT, text, origin, metric). Give every idea an ID and log the user's verdicts. Log every rule hit with the live price of whatever it held back. On Fridays, propose at most 3 changes with numbers, following the relax/add triggers in the guide. Apply only what the user approves or tests, everywhere the rule lives, and write a changelog line.
 
 **Guardrails (not negotiable).**
 - Research and planning only; the user places every order.
@@ -357,9 +454,10 @@ if __name__ == '__main__':
 
 </details>
 
----
+<details>
+<summary><b>The fine print</b></summary>
 
-## The fine print
+<a id="the-fine-print"></a>
 
 *Short version: this is a free, do-it-yourself template. You run it, you decide, you own the results.*
 
@@ -375,6 +473,8 @@ if __name__ == '__main__':
 - **Keep it private.** Never share account numbers, passwords, or uncropped screenshots of your accounts with anyone, including whoever sent you this guide.
 
 By using this guide, you accept these terms.
+
+</details>
 
 ---
 
